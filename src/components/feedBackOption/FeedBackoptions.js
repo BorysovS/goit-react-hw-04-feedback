@@ -1,14 +1,16 @@
 import { FeedbackWrap, FeedbackBtn } from './FeedBackOption.styled';
 import PropTypes from 'prop-types';
 
-export const FeedBackOptions = ({ options, onClick }) => {
+const options = ['good', 'neutral', 'bad'];
+
+export const FeedBackOptions = ({ onClick }) => {
   return (
     <FeedbackWrap>
       {options.map(option => {
         return (
           <FeedbackBtn
             type="button"
-            onClick={onClick}
+            onClick={() => onClick(option)}
             key={option}
             name={option}
           >
@@ -21,6 +23,5 @@ export const FeedBackOptions = ({ options, onClick }) => {
 };
 
 FeedBackOptions.propTypes = {
-  options: PropTypes.shape.isRequired,
   onClick: PropTypes.func.isRequired,
 };
